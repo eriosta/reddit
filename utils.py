@@ -13,9 +13,10 @@ def get_comments(data, subreddit, post_id):
     """
     comments = []
     posts = data[subreddit]
-    post = next(post for post in posts if post['id'] == post_id)
-    comments_id = post['_comments_by_id']
-    for comment in post['comments']:
-        if comment['id'] in comments_id:
-            comments.append(comment['body'])
+    post = next((post for post in posts if post['id'] == post_id), None)
+    if post is not None:
+        comments_id = post['_comments_by_id']
+        for comment in post['comments']:
+            if isinstance(comment, dict) and comment['id'] in comments_id:
+                comments.append(comment['body'])
     return comments
