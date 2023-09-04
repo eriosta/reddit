@@ -49,4 +49,4 @@ comments = get_comments(data, subreddit, post_id)
 # Display the comments
 st.subheader('Comments:')
 for comment in comments:
-    st.write(comment)
+    st.write(comment['body'])
