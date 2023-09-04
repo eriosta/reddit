@@ -13,6 +13,6 @@ def get_comments(comments_dict, comments_id):
     comments = []
     for comment_id in comments_id:
         if comment_id in comments_dict:
-            comments.append(comments_dict[comment_id]['comment_text'])
+            comments.append(comments_dict[comment_id]['body'])
     return comments
 
