@@ -5,8 +5,12 @@ import json
 from utils import get_comments
 
 # Load JSON data
-with open('reddit_data.json') as f:
-    data = json.load(f)
+uploaded_file = st.sidebar.file_uploader("Choose a JSON file or use the default", type="json")
+if uploaded_file is not None:
+    data = json.load(uploaded_file)
+else:
+    with open('reddit_dummy_data.json') as f:
+        data = json.load(f)
 
 # Create a list of subreddit names
 subreddits = list(data.keys())
@@ -18,7 +22,7 @@ subreddit = st.sidebar.selectbox('Choose a subreddit', subreddits)
 st.title(f'Selected subreddit: {subreddit}')
 
 # Get the posts from the selected subreddit
-posts = data[subreddit]['posts']
+posts = data[subreddit]
 
 # Create a list of post ids
 post_ids = [post['id'] for post in posts]
@@ -31,13 +35,13 @@ post = next(post for post in posts if post['id'] == post_id)
 
 # Display the selected post
 st.subheader('Selected post:')
-st.write(post['freetext'])
+st.write(post['selftext'])
 
 # Get the comments from the selected post
-comments_id = post['comments_id']
-comments = get_comments(data[subreddit]['comments'], comments_id)
+comments_id = post['_comments_by_id']
+comments = get_comments(post['comments'], comments_id)
 
 # Display the comments
 st.subheader('Comments:')
 for comment in comments:
-    st.write(comment)
+    st.write(comment['body'])
