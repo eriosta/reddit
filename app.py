@@ -45,7 +45,7 @@ st.write(post['selftext'])
 
 # Get the comments from the selected post
 comments_id = post['_comments_by_id']
-comments = get_comments(post['comments'], comments_id)
+comments = [comment for comment in post['comments'] if comment['id'] in comments_id]
 
 # Display the comments
 st.subheader('Comments:')
