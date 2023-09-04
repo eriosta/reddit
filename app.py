@@ -43,11 +43,10 @@ post = next(post for post in posts if post['id'] == post_id)
 st.subheader('Selected post:')
 st.write(post['selftext'])
 
-# Get the comments from the selected post
-comments_id = post['_comments_by_id']
-comments = [comment for comment in post['comments'] if comment['id'] in comments_id]
+# Get the comments from the selected post using the get_comments function from utils.py
+comments = get_comments(data, subreddit, post_id)
 
 # Display the comments
 st.subheader('Comments:')
 for comment in comments:
-    st.write(comment['body'])
+    st.write(comment)
