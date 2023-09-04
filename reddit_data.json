@@ -1,0 +1,66 @@
+{
+  "subreddit1": {
+    "posts": [
+      {
+        "id": "post1",
+        "freetext": "This is a sample post on subreddit1",
+        "comments_id": ["comment1", "comment2"]
+      },
+      {
+        "id": "post2",
+        "freetext": "This is another sample post on subreddit1",
+        "comments_id": ["comment3", "comment4"]
+      }
+    ],
+    "comments": {
+      "comment1": {
+        "id": "comment1",
+        "comment_text": "This is a comment on post1 of subreddit1"
+      },
+      "comment2": {
+        "id": "comment2",
+        "comment_text": "This is another comment on post1 of subreddit1"
+      },
+      "comment3": {
+        "id": "comment3",
+        "comment_text": "This is a comment on post2 of subreddit1"
+      },
+      "comment4": {
+        "id": "comment4",
+        "comment_text": "This is another comment on post2 of subreddit1"
+      }
+    }
+  },
+  "subreddit2": {
+    "posts": [
+      {
+        "id": "post1",
+        "freetext": "This is a sample post on subreddit2",
+        "comments_id": ["comment1", "comment2"]
+      },
+      {
+        "id": "post2",
+        "freetext": "This is another sample post on subreddit2",
+        "comments_id": ["comment3", "comment4"]
+      }
+    ],
+    "comments": {
+      "comment1": {
+        "id": "comment1",
+        "comment_text": "This is a comment on post1 of subreddit2"
+      },
+      "comment2": {
+        "id": "comment2",
+        "comment_text": "This is another comment on post1 of subreddit2"
+      },
+      "comment3": {
+        "id": "comment3",
+        "comment_text": "This is a comment on post2 of subreddit2"
+      },
+      "comment4": {
+        "id": "comment4",
+        "comment_text": "This is another comment on post2 of subreddit2"
+      }
+    }
+  }
+}
