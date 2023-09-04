@@ -6,11 +6,17 @@ from utils import get_comments
 
 # Load JSON data
 uploaded_file = st.sidebar.file_uploader("Choose a JSON file or use the default", type="json")
-if uploaded_file is not None:
-    data = json.load(uploaded_file)
-else:
-    with open('reddit_dummy_data.json') as f:
-        data = json.load(f)
+data = None
+while data is None:
+    if uploaded_file is not None:
+        data = json.load(uploaded_file)
+    else:
+        try:
+            with open('reddit_dummy_data.json') as f:
+                data = json.load(f)
+        except FileNotFoundError:
+            st.error('Default file not found. Please upload a file.')
+            continue
 
 # Create a list of subreddit names
 subreddits = list(data.keys())
