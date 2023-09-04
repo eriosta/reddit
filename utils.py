@@ -11,8 +11,7 @@ def get_comments(comments_dict, comments_id):
     list: A list of comments that match the given ids.
     """
     comments = []
-    for comment_id in comments_id:
-        if comment_id in comments_dict:
-            comments.append(comments_dict[comment_id]['body'])
+    for comment in comments_dict:
+        if comment['id'] in comments_id:
+            comments.append(comment['body'])
     return comments
-
